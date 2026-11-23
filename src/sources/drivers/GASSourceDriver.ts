@@ -34,11 +34,11 @@ export class GASSourceDriver implements SourceDriver {
       return;
     }
 
-    if (!properties.spreadsheetId) throw new Error("ID da Planilha não foi informado.");
+    if (!properties.spreadsheetId) throw new Error("Spreadsheet ID was not provided.");
 
     const spreadsheet = SpreadsheetApp.openById(properties.spreadsheetId);
 
-    if (!spreadsheet) throw new Error("Planilha não foi encontrada.");
+    if (!spreadsheet) throw new Error("Spreadsheet was not found.");
 
     this.spreadsheet = spreadsheet;
     this.spreadsheetId = spreadsheet.getId();
@@ -59,7 +59,7 @@ export class GASSourceDriver implements SourceDriver {
         collectionName
     );
 
-    if (!sheet) throw new Error("Aba informada não foi encontrada.");
+    if (!sheet) throw new Error("The specified tab was not found.");
 
     return new GASSheetSource(
       sheet
@@ -96,7 +96,7 @@ export class GASSourceDriver implements SourceDriver {
   private getActiveSpreadsheet(): GoogleAppsScript.Spreadsheet.Spreadsheet {
     const active = SpreadsheetApp.getActiveSpreadsheet();
 
-    if (!active) throw new Error("Nenhuma planilha ativa encontrada.");
+    if (!active) throw new Error("No active spreadsheet was found.");
 
     return active
   }

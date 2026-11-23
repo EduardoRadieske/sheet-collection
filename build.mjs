@@ -35,4 +35,4 @@ execSync(
   }
 );
 
-console.log("Build concluído com sucesso para dist/!");
+console.log("Build completed successfully in dist/");

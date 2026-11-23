@@ -30,7 +30,7 @@ export class NativeTableService {
     service?: NativeSheetsService
   ) {
     if (options.preset !== undefined && options.preset !== 'default') {
-      throw new Error(`Preset de tabela '${options.preset}' não é suportado.`);
+      throw new Error(`Table preset '${options.preset}' is not supported.`);
     }
 
     const globalService = (globalThis as typeof globalThis & {
@@ -73,8 +73,8 @@ export class NativeTableService {
 
     if (conflictingTable) {
       throw new Error(
-        `A aba já contém a tabela nativa '${conflictingTable.name}', ` +
-        `mas a coleção espera '${this.name}'.`
+        `The tab already contains the native table '${conflictingTable.name}', ` +
+        `but the collection expects '${this.name}'.`
       );
     }
 
@@ -114,7 +114,7 @@ export class NativeTableService {
     const created = response.replies?.[0]?.addTable?.table;
 
     if (!created?.tableId) {
-      throw new Error('A Sheets API não retornou o identificador da tabela criada.');
+      throw new Error('The Sheets API did not return the identifier for the created table.');
     }
 
     this.table = {
@@ -186,16 +186,16 @@ export class NativeTableService {
 
   private validateHeaders(headers: string[]): void {
     if (headers.length === 0 || headers.some(header => header.trim() === '')) {
-      throw new Error('Os cabeçalhos da tabela não podem ser vazios.');
+      throw new Error('Table headers cannot be empty.');
     }
     if (new Set(headers).size !== headers.length) {
-      throw new Error('Os cabeçalhos da tabela devem ser únicos.');
+      throw new Error('Table headers must be unique.');
     }
   }
 
   private validateColor(color: string): void {
     if (!/^#[0-9a-f]{6}$/i.test(color)) {
-      throw new Error(`Cor de preset inválida '${color}'. Use o formato hexadecimal #RRGGBB.`);
+      throw new Error(`Invalid preset color '${color}'. Use hexadecimal format #RRGGBB.`);
     }
   }
 
@@ -219,7 +219,7 @@ export class NativeTableService {
 
   private missingService(): never {
     throw new Error(
-      'O Advanced Sheets service não está disponível. Habilite o serviço avançado "Sheets API" no projeto Apps Script.'
+      'The Advanced Sheets service is unavailable. Enable the advanced "Sheets API" service in the Apps Script project.'
     );
   }
 }

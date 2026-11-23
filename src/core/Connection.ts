@@ -25,7 +25,7 @@ export class Connection {
     const Driver = this.DRIVERS[this.config.source];
 
     if (!Driver) {
-      throw new Error(`Driver '${this.config.source}' não registrado.`);
+      throw new Error(`Driver '${this.config.source}' is not registered.`);
     }
 
     return new Driver(this.config.properties);
