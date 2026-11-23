@@ -135,10 +135,10 @@ describe('GASSourceDriver', () => {
     spreadsheet.getSheetByName.mockReturnValue(null);
 
     expect(() => new GASSourceDriver({})).toThrow(
-      'ID da Planilha não foi informado.'
+      'Spreadsheet ID was not provided.'
     );
     expect(() => new GASSourceDriver().getSheet('missing')).toThrow(
-      'Aba informada não foi encontrada.'
+      'The specified tab was not found.'
     );
   });
 
@@ -148,7 +148,7 @@ describe('GASSourceDriver', () => {
     vi.stubGlobal('SpreadsheetApp', spreadsheetApp);
 
     expect(() => new GASSourceDriver()).toThrow(
-      'Nenhuma planilha ativa encontrada.'
+      'No active spreadsheet was found.'
     );
   });
 });

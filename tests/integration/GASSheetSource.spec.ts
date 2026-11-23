@@ -208,7 +208,7 @@ describe('GASSheetSource', () => {
     );
 
     expect(() => source.setValues([['id', ''], [1, 'Ada']])).toThrow(
-      'Os cabeçalhos da tabela não podem ser vazios.'
+      'Table headers cannot be empty.'
     );
     expect(sheet.getRange).not.toHaveBeenCalled();
     expect(batchUpdate).not.toHaveBeenCalled();

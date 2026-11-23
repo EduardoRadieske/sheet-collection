@@ -13,6 +13,6 @@ describe('Connection', () => {
     const invalidConfig = { source: 'unknown' } as unknown as ConnectionConfig;
 
     expect(() => new Connection(invalidConfig).connect())
-      .toThrow("Driver 'unknown' não registrado.");
+      .toThrow("Driver 'unknown' is not registered.");
   });
 });

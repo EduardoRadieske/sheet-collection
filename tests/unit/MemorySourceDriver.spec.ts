@@ -44,7 +44,7 @@ describe('MemorySourceDriver', () => {
         firstDb.getOrCreateSheet('users').appendRow(['id']);
 
         expect(() => secondDb.getSheet('users')).toThrow(
-            "Sheet 'users' não encontrada."
+            "Sheet 'users' was not found."
         );
     });
 

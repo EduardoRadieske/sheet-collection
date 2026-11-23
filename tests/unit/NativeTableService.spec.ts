@@ -175,10 +175,10 @@ describe('NativeTableService', () => {
     const service = new NativeTableService('spreadsheet-id', 42, 'clients', {});
 
     expect(() => service.findTable()).toThrow(
-      "A aba já contém a tabela nativa 'OtherTable'"
+      "The tab already contains the native table 'OtherTable'"
     );
     expect(() => new NativeTableService('spreadsheet-id', 42, 'clients', {
       headerColor: 'blue'
-    })).toThrow("Cor de preset inválida 'blue'");
+    })).toThrow("Invalid preset color 'blue'");
   });
 });
