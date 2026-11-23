@@ -42,7 +42,7 @@ export class MemorySourceDriver implements SourceDriver {
     const sheet = this.sheets.get(collectionName);
 
     if (!sheet) {
-      throw new Error( `Sheet '${collectionName}' não encontrada.`);
+      throw new Error(`Sheet '${collectionName}' was not found.`);
     }
 
     return sheet;

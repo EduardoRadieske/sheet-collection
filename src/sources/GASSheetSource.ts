@@ -173,7 +173,7 @@ export class GASSheetSource implements SheetSource {
 
         if (values.length === 0 || (values[0]?.length ?? 0) === 0) {
             if (currentTable) {
-                throw new Error('Uma tabela nativa precisa manter ao menos a linha de cabeçalho.');
+                throw new Error('A native table must keep at least the header row.');
             }
             return;
         }
